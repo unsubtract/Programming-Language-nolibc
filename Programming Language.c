@@ -18,14 +18,14 @@ int main(int argc, const char* argv[]) {
     char input[sizeof(program) + 1];
 
     if (argc >= 2) {
-        if ((fd = open(argv[1], O_RDONLY)) < 0) return 1;
+        if ((fd = open(argv[1], O_RDONLY)) < 0) return EXIT_FAILURE;
     }
 
     /* read file and check filesize:
      * read 1 extra byte to detect if file is too big */
     if (read(fd, input, sizeof(program) + 1) != sizeof(program)) {
         if (fd != STDIN) close(fd);
-        return 0;
+        return EXIT_SUCCESS;
     }
 
     /* i stops short of sizeof(program) if a difference is found */
@@ -35,5 +35,5 @@ int main(int argc, const char* argv[]) {
     if (i == sizeof(program)) write(STDOUT, program, sizeof(program));
     
     if (fd != STDIN) close(fd);
-    return 0;
+    return EXIT_SUCCESS;
 }

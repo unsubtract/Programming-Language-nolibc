@@ -1,7 +1,7 @@
-CC = gcc -static
-CFLAGS = -Wall -Wextra -Wpedantic --std=c89 -s -Os -nostdlib -ffreestanding \
+CC = gcc
+CFLAGS = -Wall -Wextra -Wpedantic --std=c89 -s -Os -flto -nostdlib -ffreestanding \
 	-no-pie -fno-stack-protector -fdata-sections -ffunction-sections -fno-unwind-tables -fno-asynchronous-unwind-tables \
-	-Wl,-n -Wl,--gc-sections -Wl,--build-id=none -flto
+	-Wl,-n -Wl,--gc-sections -Wl,--build-id=none
 
 all: Programming\ Language
 Programming\ Language: Programming\ Language.c clib.c clib.h crt.h crt.S
