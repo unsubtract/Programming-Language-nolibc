@@ -9,4 +9,4 @@ Programming\ Language: Programming\ Language.c clib.c clib.h crt.h crt.S
 	strip -R .comment "$@"
 
 clean:
-	rm -f Programming\ Language
+	rm -f Programming\ Language *.o
